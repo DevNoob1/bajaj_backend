@@ -3,7 +3,9 @@ const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 4000;
 
-app.use(cors());
+app.use(cors({
+    origin: 'http://localhost:3000', // Update this to your frontend URL when deployed
+}));
 app.use(express.json());
 
 app.post('/bfhl', (req, res) => {
@@ -19,14 +21,15 @@ app.post('/bfhl', (req, res) => {
 
     const response = {
         is_success: true,
-        user_id: "Ayush",
-        email: "aa3377@srmist.edu.in",
-        roll_number: "RA2111029010003",
+        user_id: "KuahxD",
+        email: "kr2640@srmist.edu.in",
+        roll_number: "RA2111029010012",
         numbers,
         alphabets,
         high_alphabet: highAlphabet
     };
 
+    console.log('Response:', response); // Log the response being sent
     res.json(response);
 });
 
